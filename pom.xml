@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://3.110.55.224:9000/</sonar.host.url>
+		<sonar.host.url>http://43.204.140.116:9000/</sonar.host.url>
                 <sonar.login>Ramanujam</sonar.login>
 		<sonar.password>Ramanujam@123</sonar.password>  
               
@@ -99,13 +99,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://52.66.253.128:8081/repository/practicejenkins-release/</url>
+	      <url>http://13.232.3.74:8081/repository/practicejenkins-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://52.66.253.128:8081/repository/practicejenkins-snapshot/</url>
+	      <url>http://13.232.3.74:8081/repository/practicejenkins-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
