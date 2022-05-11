@@ -1,0 +1,24 @@
+node{
+    def mavenHome = tool name: "Maven_3.8.2"
+    stage ('CheckOutCode'){
+        git branch: 'development', credentialsId: '314a3d80-60ed-4851-bf54-a6d88236b4d2', url: 'https://github.com/MyOrganization-01/maven-web-application-1.git'
+    }
+    stage('Build'){
+        sh "${mavenHome}/bin/mvn clean package"
+    }
+    stage('Sonarqube report'){
+     sh "${mavenHome}/bin/mvn clean sonar:sonar"   
+    }
+    stage('Nexus Repository'){
+      sh "${mavenHome}/bin/mvn clean deploy"  
+    }
+    stage("Deploy Application"){
+        sshagent(['ec2-user']) {
+      sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@65.2.148.107:/opt/apache-tomcat-9.0.62/webapps/"
+    }
+    stage('EmailNotification'){
+        emailext body: 'Build success', subject: 'Build success', to: 'mvsramanujam@gmail.com'
+    }
+
+    }
+}
