@@ -6,6 +6,6 @@ services:
     ports:
     - 9090:8080
     networks:
-    - mavenappbridge
+    - bridge1
 networks:
-  mavenappbridge:
+  bridge1:
